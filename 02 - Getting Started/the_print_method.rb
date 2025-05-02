@@ -1,0 +1,5 @@
+print "This random string"
+print " is printed on the same line."
+puts "Now I am on a new line."
+print "This is a string"
+print "This is another string"
