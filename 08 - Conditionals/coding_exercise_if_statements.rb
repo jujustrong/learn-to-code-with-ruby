@@ -9,9 +9,17 @@
 # even_or_odd_operations(13)   => 10
 # even_or_odd_operations(9)    => 6
 
-def even_or_odd_operations(int)
-  answer = int % 2 != 0 ? int - 3 : int + 2 
-  return answer
+# def even_or_odd_operations(int)
+#   answer = int % 2 != 0 ? int - 3 : int + 2 
+#   return answer
+# end
+
+# puts even_or_odd_operations(9)
+
+#-------------- Alternate Method -------------------
+
+def even_or_odd_operations(num)
+  num.even? ? num + 2 : num - 3
 end
 
 puts even_or_odd_operations(9)
