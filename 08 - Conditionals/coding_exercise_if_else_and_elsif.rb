@@ -13,10 +13,14 @@
 
 def numeric_energy(number)
   if number > 0
-    return "Positive"
+    "Positive"
   elsif number < 0
-    return "Negative"
+    "Negative"
   else
-    return "Zero Hero"
+    "Zero Hero"
   end
 end
+
+puts numeric_energy(25)
+puts numeric_energy(-8)
+puts numeric_energy(0)
