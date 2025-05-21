@@ -16,3 +16,18 @@ end
 def five_favorite_numbers
   five_favorite_numbers = [ 8, 10, 17, 45, 99 ]
 end
+
+# -------------------------------------------------------------------------------
+# Alternate Solutions
+
+def empty_array
+  []
+end 
+
+def three_colors
+  %w[ red green blue ]
+end
+
+def five_favorite_numbers
+  [ 5, 6, 2, 19, 386 ]
+end
