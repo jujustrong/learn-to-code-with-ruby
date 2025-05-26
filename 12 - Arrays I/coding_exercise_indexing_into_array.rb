@@ -14,6 +14,12 @@ def first_and_last(arr)
   return combo
 end
 
+# Version 2 - more concise, no return keyword
+
+def first_and_last(element)
+  element[0] + element[1]
+end
+
 
 # Define a product_of_even_indices method that accepts an 
 # array of numbers. The array will always have 6 total elements. 
@@ -31,6 +37,12 @@ def product_of_even_indices(arr)
     product *= arr[num] if num.even?
   end
   product
+end
+
+# Version 2 - Less code, Hard Coded indices, Based on array having only 6 elements'
+
+def product_of_even_indices(numbers)
+  numbers[0] * numbers[2] * numbers[4]
 end
 
 
