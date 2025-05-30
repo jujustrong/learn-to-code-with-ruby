@@ -8,12 +8,13 @@ class Game
     puts "🌲 Welcome to INTO THE WOODS 🌲"
     print "Enter your name adventurer: "
     name = gets.chomp
-    Player.new(name)
+    @player = Player.new(name)
+    start
   end
 
   def start
     pause_and_clear
-    puts "Hello #{Player.name}."
+    puts "Hello #{@player.name}."
     first_choice
   end
 
