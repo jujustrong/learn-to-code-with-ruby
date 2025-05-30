@@ -36,3 +36,23 @@ def positive_sum(arr)
 end
 
 #---------------------------------------------------------------------------------
+
+# Function that accepts a non-negative integer 'n' and a string 's' as parameters,
+# and returns a string of 's' repeated exactly 'n' times.
+
+def repeat_str(n, s)
+  str = ""
+  while n > 0
+    str << s
+    n -=1
+  end
+  str
+end
+
+# Alternate Solution
+
+def repeat_str(n, s) # Much less logic and much more concise.
+  s*n
+end
+
+#---------------------------------------------------------------------------------
