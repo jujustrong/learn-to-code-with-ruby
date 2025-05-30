@@ -56,3 +56,25 @@ def repeat_str(n, s) # Much less logic and much more concise.
 end
 
 #---------------------------------------------------------------------------------
+
+def remove_exclamation_marks(s)
+  s.delete('!')
+end
+
+# Alternate Version
+
+def remove_exclamation_marks(s)
+  # Create an empty string to store the result
+  result = ""
+
+  # Go through each character in the string
+  s.each_char do |char|
+    # Add the character to the result only if it's not an exclamation mark
+    if char != "!"
+      result += char
+    end
+  end
+
+  # Return the new string without exclamation marks
+  return result
+end
