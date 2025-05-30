@@ -1,6 +1,8 @@
 require_relative 'player'
 require_relative 'combat'
 require_relative 'utility'
+require_relative 'story'
+require_relative 'items'
 
 class Game
   def initialize
