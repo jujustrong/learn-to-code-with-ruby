@@ -99,3 +99,14 @@ end
 def basic_op(operator, value1, value2)
   value1.send(operator, value2)
 end
+
+#---------------------------------------------------------------------------------
+
+def digitize(n) # Takes numbers, reverses them, and returns them in an array
+  n.to_s.reverse.split("").map{ |x| x.to_i }
+end
+
+def digitize(n) # This does the same thing actually...
+ n.digits 
+end
+
