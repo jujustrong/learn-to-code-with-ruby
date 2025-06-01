@@ -78,3 +78,24 @@ def remove_exclamation_marks(s)
   # Return the new string without exclamation marks
   return result
 end
+
+#---------------------------------------------------------------------------------
+
+def basic_op(operator, value1, value2) # Given an operator and 2 values, make a mini calculator
+  case operator
+  when "+"
+    value1 + value2
+  when "-"
+    value1 - value2
+  when "*"
+    value1 * value2
+  when "/"
+    value1 / value2
+  end
+end
+
+# Alternate Version
+
+def basic_op(operator, value1, value2)
+  value1.send(operator, value2)
+end
