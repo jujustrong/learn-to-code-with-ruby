@@ -147,8 +147,37 @@ def average(array)    # Calculates the average of the numbers in a given array. 
   array.empty? ? 0 : array.sum.to_f / array.length
 end
 
-puts average([1, 3])
-puts average([1, 2, -3])
-puts average([0, 1])
-puts average([17, 16, 16, 16, 15, 17, 17, 15, 5, 17, 17, 16])
-puts average([])
+# puts average([1, 3])
+# puts average([1, 2, -3])
+# puts average([0, 1])
+# puts average([17, 16, 16, 16, 15, 17, 17, 15, 5, 17, 17, 16])
+# puts average([])
+
+#---------------------------------------------------------------------------------
+
+def grow(x)           # Given a non-empty array, return the result of multiplying the values together in order.
+  product = 1         # [1, 2, 3, 4] ==> 1 * 2 * 3 * 4 = 24
+  x.each do |num|
+    product *= num
+  end
+  product
+end
+
+# Alternate Versions
+
+def grow(x)
+  # Using the inject method
+  # Loops through the array and carries forward a result, applying the block
+  # Multiplies on each step 
+  
+  x.inject(1) { |product, num| product *= num }
+
+  # Also can be used like this: x.inject(:*)
+end
+
+def grow(x)
+  # Using the reduce method
+  x.reduce(:*)
+
+  # Also can be used like this: x.reduce do |x, y| x * y
+end
