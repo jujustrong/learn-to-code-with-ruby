@@ -110,3 +110,21 @@ def digitize(n) # This does the same thing actually...
  n.digits 
 end
 
+#---------------------------------------------------------------------------------
+
+def abbrev_name(name)
+  abbrev = name.upcase.split
+  first_init = abbrev[0]
+  sec_init = abbrev[1]
+  "#{first_init[0]}.#{sec_init[0]}"
+end
+
+# Alternate Versions
+
+def abbrev_name(name)
+  name.split.map { |s| s[0]}.join('.').upcase
+end
+
+def abbrev_name(name)
+		"#{name.split[0][0]}.#{name.split[1][0]}".upcase
+end
