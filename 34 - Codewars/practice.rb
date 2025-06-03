@@ -112,8 +112,8 @@ end
 
 #---------------------------------------------------------------------------------
 
-def abbrev_name(name)
-  abbrev = name.upcase.split
+def abbrev_name(name)         # Take in a string with a first and last name and return the initials of the name with a '.'
+  abbrev = name.upcase.split  # in between the capitalized initials. --> H.G, J.A, A.A
   first_init = abbrev[0]
   sec_init = abbrev[1]
   "#{first_init[0]}.#{sec_init[0]}"
@@ -127,4 +127,10 @@ end
 
 def abbrev_name(name)
 		"#{name.split[0][0]}.#{name.split[1][0]}".upcase
+end
+
+#---------------------------------------------------------------------------------
+
+def invert(list)    #Given an array of nums, return the additive inverse of each. pos -> neg, neg -> pos
+  list.map { |x| x * -1 }
 end
