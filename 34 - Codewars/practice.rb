@@ -134,3 +134,21 @@ end
 def invert(list)    #Given an array of nums, return the additive inverse of each. pos -> neg, neg -> pos
   list.map { |x| x * -1 }
 end
+
+# Alternate Versions
+
+def invert(list)
+  list.map { |x| -x  }      # Essentially the same thing but with less code
+end
+
+#---------------------------------------------------------------------------------
+
+def average(array)    # Calculates the average of the numbers in a given array. Empty arrays return 0
+  array.empty? ? 0 : array.sum.to_f / array.length
+end
+
+puts average([1, 3])
+puts average([1, 2, -3])
+puts average([0, 1])
+puts average([17, 16, 16, 16, 15, 17, 17, 15, 5, 17, 17, 16])
+puts average([])
