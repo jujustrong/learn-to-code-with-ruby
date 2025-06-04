@@ -181,3 +181,13 @@ def grow(x)
 
   # Also can be used like this: x.reduce do |x, y| x * y
 end
+
+#---------------------------------------------------------------------------------
+
+#return an array where the first element is the count of positive nums and the second element
+#is the sum of negative nums. 0 is neither pos or neg. If the arr is empty or null, return empty
+
+def count_positives_sum_negatives(lst)
+  return [] if lst.empty?
+  [lst.select(&:positive?).count, lst.select(&:negative?).sum]
+end
