@@ -191,3 +191,28 @@ def count_positives_sum_negatives(lst)
   return [] if lst.empty?
   [lst.select(&:positive?).count, lst.select(&:negative?).sum]
 end
+
+#---------------------------------------------------------------------------------
+
+# Write a function bmi that calculates body mass index
+
+def bmi(weight, height)
+  bmi = weight / (height ** 2)
+  return "Underweight" if bmi <= 18.5 
+  return "Normal" if bmi <= 25.0 
+  return "Overweight" if bmi <= 30.0 
+  return "Obese"  if bmi > 30 
+end
+
+def bmi(weight, height)
+  case weight / (height ** 2)
+  when 0..18.5
+    "Underweight"
+  when 18.5..25.0
+    "Normal"
+  when 25.0..30.0
+    "Overweight"
+  else
+    "Obese"
+  end
+end
