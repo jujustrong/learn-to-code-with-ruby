@@ -216,3 +216,54 @@ def bmi(weight, height)
     "Obese"
   end
 end
+
+#---------------------------------------------------------------------------------
+
+# Define a function that removes duplicates from an array of non negative nums
+# and returns it as a result.
+
+def distinct(seq)
+  seq.uniq
+end
+
+# Alternate solution (more in depth)
+
+def distinct(seq)
+  new_seq = []
+  seq.each do |x|
+    new_seq << x unless new_seq.include?(x)
+  end
+  new_seq
+end
+
+# puts distinct([1,1,1,1,3,5,70,84,2892,31,2,3,8,])
+
+#---------------------------------------------------------------------------------
+
+# ROCK PAPER SCISSORS or DRAW
+
+def rps(p1, p2)
+
+  return "Draw!" if p1.downcase == p2.downcase
+
+  if (p1.downcase == "rock" && p2.downcase == "scissors") || (p1.downcase == "paper" && p2.downcase == "rock") || (p1.downcase == "scissors" && p2.downcase == "paper")
+    "Player 1 won!"
+  elsif (p2.downcase == "rock" && p1.downcase == "scissors") || (p2.downcase == "paper" && p1.downcase == "rock") || (p2.downcase == "scissors" && p1.downcase == "paper")
+    "Player 2 won!"
+  end
+  
+end
+
+# Alternate solution using Beatmap
+
+def rps(p1, p2)
+  beatmap = { 'scissors' => 'paper', 'paper' => 'rock', 'rock' => 'scissors' }
+
+  if p1 == p2
+    "Draw!"
+  elsif beatmap[p1] == p2
+    "Player 1 won!"
+  else
+    "Player 2 won!"
+  end
+end
