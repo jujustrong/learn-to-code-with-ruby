@@ -267,3 +267,24 @@ def rps(p1, p2)
     "Player 2 won!"
   end
 end
+
+#---------------------------------------------------------------------------------
+
+# Given an arr of nums, check if any of the nums are the char codes for lower case vowels
+# if they are, change the arr to a str of that value
+
+def is_vow(a)
+  codes = {
+    97 => "a",
+    101 => "e",
+    105 => "i",
+    111 => "o",
+    117 => "u"
+  }
+
+  a.map do |num|
+    codes.key?(num) ? codes[num] : num
+  end
+
+  
+end
