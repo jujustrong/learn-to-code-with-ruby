@@ -285,6 +285,39 @@ def is_vow(a)
   a.map do |num|
     codes.key?(num) ? codes[num] : num
   end
+end
 
-  
+#---------------------------------------------------------------------------------
+
+# Do addition and subtraction on a given string. The return value must also be a string
+
+def calculate(str)
+  expr = str.gsub("plus", "+").gsub("minus", "-")   #Using Eval. Eval is powerful and should not always be used since
+  eval(expr).to_s                                   #it executes code. 
+end   
+
+def calculate(expression)
+  # Step 1: Split into tokens (numbers and operators)
+  tokens = expression.split(/(plus|minus)/)
+
+  # Step 2: Initialize result with the first number
+  result = tokens[0].to_i
+
+  # Step 3: Loop through operators and following numbers
+  i = 1
+  while i < tokens.length
+    operator = tokens[i]
+    number = tokens[i + 1].to_i
+
+    if operator == "plus"
+      result += number
+    elsif operator == "minus"
+      result -= number
+    end
+
+    i += 2  # Move to the next operator
+  end
+
+  # Step 4: Return result as string
+  result.to_s
 end
