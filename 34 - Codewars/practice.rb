@@ -321,3 +321,14 @@ def calculate(expression)
   # Step 4: Return result as string
   result.to_s
 end
+
+#---------------------------------------------------------------------------------
+
+#given a string of words, return the length of the shortest word(s)
+
+def find_short(s)
+  new_arr = s.split(" ")
+  new_arr.map { |x| x.length  }.min
+end
+
+print find_short("bitcoin take over the world maybe who knows perhaps")
