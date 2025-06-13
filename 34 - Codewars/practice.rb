@@ -332,3 +332,11 @@ def find_short(s)
 end
 
 print find_short("bitcoin take over the world maybe who knows perhaps")
+
+#---------------------------------------------------------------------------------
+
+#make a filter list that returns only the non strings in the list
+
+def filter_list(l)
+  new_lst = l.select { |n| !n.is_a?(String) }
+end
