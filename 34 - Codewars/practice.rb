@@ -340,3 +340,17 @@ print find_short("bitcoin take over the world maybe who knows perhaps")
 def filter_list(l)
   new_lst = l.select { |n| !n.is_a?(String) }
 end
+
+#---------------------------------------------------------------------------------
+
+#define a method that takes a string and returns the middle char if length is odd,
+#or the middle 2 chars if length is even.
+
+def get_middle(s)
+  s[(s.size-1)/2..s.size/2]
+end
+
+def get_middle(s)
+  center = s.size / 2
+  s.size.odd? ? s[center] : s[(center-1)..center] 
+end
