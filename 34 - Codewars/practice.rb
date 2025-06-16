@@ -331,7 +331,7 @@ def find_short(s)
   new_arr.map { |x| x.length  }.min
 end
 
-print find_short("bitcoin take over the world maybe who knows perhaps")
+# print find_short("bitcoin take over the world maybe who knows perhaps")
 
 #---------------------------------------------------------------------------------
 
@@ -353,4 +353,12 @@ end
 def get_middle(s)
   center = s.size / 2
   s.size.odd? ? s[center] : s[(center-1)..center] 
+end
+
+#---------------------------------------------------------------------------------
+
+# Define a method that takes an integer and returns its digits in descending order
+
+def descending_order(n)
+  n.to_s.chars.sort.reverse.join.to_i #this also works by just using "digits" instead of to_s and chars
 end
