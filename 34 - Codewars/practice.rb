@@ -493,3 +493,20 @@ end
 
 #---------------------------------------------------------------------------------
 
+# returns countdown arrays within a single array
+
+def counter_effect(hit_count)
+  total_lst = []
+  count_lst = hit_count.chars
+  num_lst = count_lst.map { |x| x.to_s.chars.map(&:to_i) }
+  num_lst.each do |n|
+    total_lst << [*0..n[0]] #creating range and turning into seperate arr
+  end
+  total_lst
+
+end
+
+def counter_effect(hit_count)
+  hit_count.chars.map { |n| (0..n.to_i).to_a }
+end
+
