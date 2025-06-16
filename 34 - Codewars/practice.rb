@@ -362,3 +362,43 @@ end
 def descending_order(n)
   n.to_s.chars.sort.reverse.join.to_i #this also works by just using "digits" instead of to_s and chars
 end
+
+#---------------------------------------------------------------------------------
+
+# sum of 2 lowest positive integers
+
+def sum_two_smallest_ints(numbers)
+  puts num1 = numbers.sort!.shift
+  puts num2 = numbers.sort!.first
+  num1 + num2
+end
+
+ # min and max can also take parameters!
+
+def sum_two_smallest_ints(numbers)
+  numbers.min(2).sum
+end
+
+#---------------------------------------------------------------------------------
+
+# FizzBuzz
+
+def fizzbuzz(n)
+  lst = []
+  1.upto(n) { |x|
+    if x % 3 == 0 && x % 5 == 0
+      lst << "FizzBuzz"
+    elsif x % 3 == 0 
+      lst << "Fizz"
+    elsif x % 5 == 0
+      lst << "Buzz"
+    else
+      lst << x
+    end
+  }
+  lst
+end
+
+def fizzbuzz(n)
+  1.upto(n) { |i| puts i % 15 == 0 ? "FizzBuzz" : i % 3 == 0 ? "Fizz" : i % 5 == 0 ? "Buzz" : i }
+end
