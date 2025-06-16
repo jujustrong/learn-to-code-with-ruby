@@ -402,3 +402,94 @@ end
 def fizzbuzz(n)
   1.upto(n) { |i| puts i % 15 == 0 ? "FizzBuzz" : i % 3 == 0 ? "Fizz" : i % 5 == 0 ? "Buzz" : i }
 end
+
+#---------------------------------------------------------------------------------
+
+# Define a function that makes up a UK drivers license number based on the 16 rules
+
+def driver(data)
+  
+  name = data[2][0,5].ljust(5, "9").upcase
+  initials = data[1].empty? ? "#{data[0][0]}#{data[1].ljust(1,"9")}" : "#{data[0][0]}#{data[1][0]}"
+  year = data[3].split("-")[1]
+  decade_digit = data[3].split("-")[2][2]
+  year_digit = data[3].split("-")[2][3]
+  day = data[3].split("-")[0]
+  month_digit = ""
+  gender = data[4]
+  arbitrary_digit = 9
+  check = "AA"
+
+  if gender.upcase == "M"
+
+    case
+    when year.upcase.start_with?("JAN")
+      month_digit = "01"
+    when year.upcase.start_with?("FEB")
+      month_digit = "02"
+    when year.upcase.start_with?("MAR")
+      month_digit = "03"
+    when year.upcase.start_with?("APR")
+      month_digit = "04"
+    when year.upcase.start_with?("MAY")
+      month_digit = "05"
+    when year.upcase.start_with?("JUN")
+      month_digit = "06"
+    when year.upcase.start_with?("JUL")
+      month_digit = "07"
+    when year.upcase.start_with?("AUG")
+      month_digit = "08"
+    when year.upcase.start_with?("SEP")
+      month_digit = "09"
+    when year.upcase.start_with?("OCT")
+      month_digit = "10"
+    when year.upcase.start_with?("NOV")
+      month_digit = "11"
+    when year.upcase.start_with?("DEC")
+      month_digit = "12"
+    else
+      puts "Please enter a valid month"
+    end
+  end
+
+  if gender.upcase == "F"
+
+    case 
+    when year.upcase.start_with?("JAN")
+      month_digit = "51"
+    when year.upcase.start_with?("FEB")
+      month_digit = "52"
+    when year.upcase.start_with?("MAR")
+      month_digit = "53"
+    when year.upcase.start_with?("APR")
+      month_digit = "54"
+    when year.upcase.start_with?("MAY")
+      month_digit = "55"
+    when year.upcase.start_with?("JUN")
+      month_digit = "56"
+    when year.upcase.start_with?("JUL")
+      month_digit = "57"
+    when year.upcase.start_with?("AUG")
+      month_digit = "58"
+    when year.upcase.start_with?("SEP")
+      month_digit = "59"
+    when year.upcase.start_with?("OCT")
+      month_digit = "60"
+    when year.upcase.start_with?("NOV")
+      month_digit = "61"
+    when year.upcase.start_with?("DEC")
+      month_digit = "62"
+    else
+      puts "Please enter a valid month"
+    end
+  end
+
+  license_number = [name, decade_digit, month_digit, day, year_digit, initials, arbitrary_digit, check].join
+
+end
+
+# driver(["John","James","Smith","01-Jan-2000","M"])
+# driver(["Johanna","","Gibbs","13-Dec-1981","F"])
+
+#---------------------------------------------------------------------------------
+
