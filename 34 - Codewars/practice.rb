@@ -510,3 +510,33 @@ def counter_effect(hit_count)
   hit_count.chars.map { |n| (0..n.to_i).to_a }
 end
 
+#---------------------------------------------------------------------------------
+
+# Defining a method to loop through a character and its index
+# Example:
+# accum("abcd") -> "A-Bb-Ccc-Dddd"
+# accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+# accum("cwAt") -> "C-Ww-Aaa-Tttt"
+
+def accum(s)
+  result = []
+
+  s.chars.each_with_index do |char, index|
+    first = char.upcase
+    rest = char.downcase * index #makes the rest lowercase and repeats it 'index' times
+    combined = first + rest
+    result << combined
+  end
+
+  result.join('-')
+
+end
+
+# puts accum("abcd")
+
+#Easier way with preds and built in methods
+def accum(s)
+  s.chars.each_with_index.map do |char, index|
+    char.upcase + char.downcase*index
+  end.join('-')
+end
