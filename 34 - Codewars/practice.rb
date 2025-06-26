@@ -540,3 +540,18 @@ def accum(s)
     char.upcase + char.downcase*index
   end.join('-')
 end
+
+#---------------------------------------------------------------------------------
+
+#Word scramble method (not first and last char)
+
+def jumble(string)
+  return string if string.length <= 3
+  first = string[0]
+  last = string[-1]
+  middle = string[1..-2].chars.shuffle.join
+
+  first + middle + last
+end
+
+puts jumble("scramble")
