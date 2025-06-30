@@ -554,4 +554,5 @@ def jumble(string)
   first + middle + last
 end
 
-puts jumble("scramble")
+# Alternative Method
+str.gsub(/(?<=\w)\w+(?=\w)/, &:reverse)
