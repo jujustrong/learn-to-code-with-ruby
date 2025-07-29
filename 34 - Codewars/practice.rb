@@ -600,7 +600,7 @@ def reverse_words(str)
   str.strip.split.map { |word| word.reverse }.join(" ")
 end
 
-p reverse_words("This is an example!")
+# p reverse_words("This is an example!")
 
 #---------------------------------------------------------------------------------
 
@@ -611,4 +611,27 @@ def find_difference(a, b)
   difference.abs  
 end
 
-puts find_difference([9, 7, 2], [5, 2, 2])
+# puts find_difference([9, 7, 2], [5, 2, 2])
+
+#---------------------------------------------------------------------------------
+
+def disemvowel(str)
+  new_str = []
+  vowels = ["a", "e", "i", "o", "u"]
+  str.each_char do |x|
+    new_str << x unless vowels.include?(x.downcase)
+  end
+
+  new_str.join
+
+end
+
+# Shorter version using gsub and regex (still figuring this out)
+
+def disemvowel(str)
+  str.gsub(/[aeiou]/i, "")
+end
+
+def disemvowel(str)
+  str.delete("aeiouAEIOU")
+end
