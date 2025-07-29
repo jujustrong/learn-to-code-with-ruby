@@ -586,11 +586,29 @@ def switch_it_up(number)
   end
 end
 
-# Alternate Method
+# Alternate Method - One liner
 
 def switch_it_up(number)
   %w(Zero One Two Three Four Five Six Seven Eight Nine)[number]
 end
 
+#---------------------------------------------------------------------------------
 
-puts switch_it_up(4)
+# Word Reversal
+
+def reverse_words(str)
+  str.strip.split.map { |word| word.reverse }.join(" ")
+end
+
+p reverse_words("This is an example!")
+
+#---------------------------------------------------------------------------------
+
+# Difference in cuboid volumes
+
+def find_difference(a, b)
+  difference = a.reduce(:*) - b.reduce(:*)
+  difference.abs  
+end
+
+puts find_difference([9, 7, 2], [5, 2, 2])
