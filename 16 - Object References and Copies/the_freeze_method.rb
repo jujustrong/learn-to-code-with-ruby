@@ -21,7 +21,7 @@ p hobbies_dup
 puts 
 
 name_clone = name.clone
-# name_clone << " the Genius"
+name_clone << " the Genius"
 
 hobbies_clone = hobbies.clone
 # hobbies_clone << "Winning"
