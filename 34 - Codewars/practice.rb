@@ -629,9 +629,13 @@ end
 # Shorter version using gsub and regex (still figuring this out)
 
 def disemvowel(str)
+  # the array in between the / / has the characters we are looking to match.
+  # the "i" after the / / is a case check. It will check upper and lower case vowels.
+  # the string is a gsub feature to replace the charcter with no space or anything you want.
   str.gsub(/[aeiou]/i, "")
 end
 
 def disemvowel(str)
+  # Simple way to find and delete exact matches in the string.
   str.delete("aeiouAEIOU")
 end
