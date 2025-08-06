@@ -1,20 +1,11 @@
-# Define a hash_from_arrays method that accepts two arrays.
-# The two arrays will be equal in length.
-# Return a hash where the the elements of the first array
-# are the keys and the elements of the second array are
-# the elements. Match the elements across the two arrays
-# by their shared index position.
-#
-# Examples:
-# The => indicates the expected return value
-# hash_from_arrays(["red", "green", "blue"], [1, 2, 3])   => {"red"=>1, "green"=>2, "blue"=>3}
-# hash_from_arrays([:hello, :happy], [:goodbye, :sad])    => {:hello=>:goodbye, :happy=>:sad}
-# hash_from_arrays([], [])                                => {}
+numbers = {}
+p numbers[:pi]
 
-def hash_from_arrays(arr1, arr2)
-  arr1.zip(arr2).to_h
-end
+numbers = Hash.new("complete nonsense")
+numbers[:pi] = 3.14
+numbers[:pokemon] = 150
+p numbers[:pi]
+p numbers[:pokemon]
 
-p hash_from_arrays(["Adidas Terrex", "The North Face", "Hoka"], ["Agravic Speed Ultra", "Summit Vectiv Pro 3", "Tecton X3"])
-p hash_from_arrays(["red", "green", "blue"], [1, 2, 3])
-p hash_from_arrays([:hello, :happy], [:goodbye, :sad])
+p numbers[:planets]
+p numbers[:colors]
