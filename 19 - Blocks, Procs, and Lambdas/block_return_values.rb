@@ -12,7 +12,6 @@ who_am_i {"talented"}
 puts 
 
 who_am_i do
-  "handsome"
   "wonderful"
 end
 
