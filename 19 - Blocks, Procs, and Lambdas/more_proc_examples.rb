@@ -14,7 +14,7 @@ puts
 
 is_senior = Proc.new { |age| age > 60 }
 
-#select and reject return a bool
+# select and reject return a bool
 
 ages = [10, 60, 83, 30, 43, 25]
 p ages.select(&is_senior)
