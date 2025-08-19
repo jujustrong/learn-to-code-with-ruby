@@ -36,6 +36,7 @@ def number_guesser
       puts "YOU GOT IT! #{guess} is correct!"
       sleep(1)
       puts "Congrats! You got it in #{guesses} guesses!"
+      guesses = 1
       break
       elsif guess < random_num
         sleep(1)
@@ -54,10 +55,12 @@ def number_guesser
     end
 
     play_again = ask("Would you like to play again? (Y/N) ").downcase
-    break if play_again != "y" 
-    
-
-
+    if play_again == "y" 
+      guesses = 1
+    else
+      break
+    end
+  
   end
 
 
