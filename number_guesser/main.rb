@@ -30,7 +30,7 @@ def number_guesser
     system('clear')
 
     while guesses <= 10
-      guess = ask("Guess a number between 1 and 100: (#{random_num}) ").to_i
+      guess = ask("Guess a number between 1 and 100: ").to_i
 
       if guess == random_num
       puts "YOU GOT IT! #{guess} is correct!"
