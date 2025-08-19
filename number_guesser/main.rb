@@ -8,57 +8,60 @@ def ask(prompt)
   gets.chomp
 end
 
-def intro
-  
-end
-
 def number_guesser
-  guesses = 0
+  guesses = 1
 
   loop do
     puts "Welcome to the Number Guesser!"
-    sleep(0.5)
+    sleep(2)
     puts "You have 10 chances to guess the chosen number!"
-    sleep(0.5)
-    system('clear')
+    sleep(2)
     puts "Generating random number..."
-    sleep(1)
+    sleep(2)
     print "..."
     sleep(0.5)
     print "..."
     sleep(0.5)
-    print "..."
+    puts "..."
     sleep(0.5)
     random_num = rand(1..100)
     puts "The number has been decided!"
+    sleep(2)
     system('clear')
-    guess = ask("Guess a number between 1 and 100: ").to_i
 
     while guesses <= 10
+      guess = ask("Guess a number between 1 and 100: (#{random_num}) ").to_i
+
       if guess == random_num
       puts "YOU GOT IT! #{guess} is correct!"
       sleep(1)
       puts "Congrats! You got it in #{guesses} guesses!"
       break
       elsif guess < random_num
+        sleep(1)
         puts "Too LOW..."
+        puts "#{10 - guesses} guesses left!"
         guesses += 1
-        puts "#{guesses} left!"
       elsif guess > random_num
+        sleep(1)
         puts "Too HIGH..."
+        puts "#{10 - guesses} guesses left!"
         guesses += 1
-        puts "#{guesses} left!"
       else
         puts "Please enter a number between 1 and 100..."
         system('clear')
       end
     end
 
-    play_again = ask("Would you like to play again? (Y/N)").downcase
-    break if play_again != y
+    play_again = ask("Would you like to play again? (Y/N) ").downcase
+    break if play_again != "y" 
+    
 
 
   end
 
 
 end
+
+
+number_guesser
