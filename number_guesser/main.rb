@@ -12,9 +12,11 @@ def number_guesser
 
   loop do
     guesses = 1
+    max_guesses = 10
+
     puts "Welcome to the Number Guesser!"
     sleep(2)
-    puts "You have 10 chances to guess the chosen number!"
+    puts "You have #{max_guesses} chances to guess the chosen number!"
     sleep(2)
     puts "Generating random number..."
     sleep(2)
@@ -24,23 +26,24 @@ def number_guesser
       sleep(0.5)
     end
     puts
-    
+
     random_num = rand(1..100)
     puts "The number has been decided!"
     sleep(2)
     system('clear')
 
-    while guesses <= 10
+    while guesses <= max_guesses
       guess = ask("Guess a number between 1 and 100: ").to_i
 
       # Invalid input check
-      if guess < 1 || guess > 100
-        puts "Please enter a valid number 1 and 100"
+      unless (1..100).include?(guess)
+        puts "❌ Please enter a valid number 1 and 100"
+        system('clear')
         next
       end
 
       if guess == random_num
-      puts "YOU GOT IT! #{guess} is correct!"
+      puts "🎉 YOU GOT IT! #{guess} is correct!"
       sleep(1)
       puts "Congrats! You got it in #{guesses} guesses!"
       puts
@@ -48,24 +51,17 @@ def number_guesser
       break
       elsif guess < random_num
         sleep(1)
-        puts "Too LOW..."
-        puts "#{10 - guesses} guesses left!"
+        puts "Too LOW...(#{max_guesses - guesses} guesses left!)"
         puts
-        guesses += 1
-      elsif guess > random_num
-        sleep(1)
-        puts "Too HIGH..."
-        puts "#{10 - guesses} guesses left!"
-        puts
-        guesses += 1
       else
-        puts "Please enter a number between 1 and 100..."
-        system('clear')
+        sleep(1)
+        puts "Too HIGH...(#{max_guesses - guesses} guesses left!)"
+        puts
       end
 
     end
 
-    puts "Out of guesses! The correct number was #{random_num}" if guesses > 10
+    puts "😢 Out of guesses! The correct number was #{random_num}" if guesses > 10
 
     play_again = ask("Would you like to play again? (Y/N) ").downcase
 
