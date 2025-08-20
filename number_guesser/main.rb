@@ -32,14 +32,17 @@ def play
   system('clear')
 
   while guesses <= max_guesses
-    guess = ask("Guess a number between 1 and 100: ").to_i
+    guess = ask("Guess a number between 1 and 100: ")
 
     # Invalid input check
     unless (1..100).include?(guess)
       puts "❌ Please enter a valid number 1 and 100"
+      sleep(2)
       system('clear')
       next
     end
+
+    guess = guess.to_i
 
     if guess == random_num
       puts "🎉 YOU GOT IT! #{guess} is correct!"
@@ -69,6 +72,7 @@ def number_guesser
   loop do
     play
     play_again = ask("Would you like to play again? (Y/N) ").downcase
+    system('clear')
     break unless play_again == "y"
   end
 
