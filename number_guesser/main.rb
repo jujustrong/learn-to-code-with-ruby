@@ -9,9 +9,9 @@ def ask(prompt)
 end
 
 def number_guesser
-  guesses = 1
 
   loop do
+    guesses = 1
     puts "Welcome to the Number Guesser!"
     sleep(2)
     puts "You have 10 chances to guess the chosen number!"
