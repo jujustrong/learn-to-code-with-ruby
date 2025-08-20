@@ -18,12 +18,13 @@ def number_guesser
     sleep(2)
     puts "Generating random number..."
     sleep(2)
-    
+
     3.times do
       print "..."
       sleep(0.5)
     end
-   
+    puts
+    
     random_num = rand(1..100)
     puts "The number has been decided!"
     sleep(2)
@@ -42,17 +43,20 @@ def number_guesser
       puts "YOU GOT IT! #{guess} is correct!"
       sleep(1)
       puts "Congrats! You got it in #{guesses} guesses!"
+      puts
       guesses = 1
       break
       elsif guess < random_num
         sleep(1)
         puts "Too LOW..."
         puts "#{10 - guesses} guesses left!"
+        puts
         guesses += 1
       elsif guess > random_num
         sleep(1)
         puts "Too HIGH..."
         puts "#{10 - guesses} guesses left!"
+        puts
         guesses += 1
       else
         puts "Please enter a number between 1 and 100..."
