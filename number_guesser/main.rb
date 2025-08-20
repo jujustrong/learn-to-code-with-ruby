@@ -18,12 +18,12 @@ def number_guesser
     sleep(2)
     puts "Generating random number..."
     sleep(2)
-    print "..."
-    sleep(0.5)
-    print "..."
-    sleep(0.5)
-    puts "..."
-    sleep(0.5)
+    
+    3.times do
+      print "..."
+      sleep(0.5)
+    end
+   
     random_num = rand(1..100)
     puts "The number has been decided!"
     sleep(2)
