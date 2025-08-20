@@ -32,6 +32,12 @@ def number_guesser
     while guesses <= 10
       guess = ask("Guess a number between 1 and 100: ").to_i
 
+      # Invalid input check
+      if guess < 1 || guess > 100
+        puts "Please enter a valid number 1 and 100"
+        next
+      end
+
       if guess == random_num
       puts "YOU GOT IT! #{guess} is correct!"
       sleep(1)
@@ -52,9 +58,13 @@ def number_guesser
         puts "Please enter a number between 1 and 100..."
         system('clear')
       end
+
     end
 
+    puts "Out of guesses! The correct number was #{random_num}" if guesses > 10
+
     play_again = ask("Would you like to play again? (Y/N) ").downcase
+
     if play_again == "y" 
       guesses = 1
     else
@@ -62,7 +72,6 @@ def number_guesser
     end
   
   end
-
 
 end
 
