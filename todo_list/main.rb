@@ -7,6 +7,8 @@ end
 def todo
   tasks_to_complete = []
   completed_tasks = []
+  counter = 0
+
   puts "-"*40
   loop do
     puts "What would you like to do?"
@@ -16,7 +18,7 @@ def todo
       tasks_to_complete << new_task.capitalize
       puts "Task Added!"
     elsif choice == 2
-      puts tasks_to_complete
+      completed_tasks.map { |task| puts "#{counter}: #{task}, "  }
 
     end
 end
