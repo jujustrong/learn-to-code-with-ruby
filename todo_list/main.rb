@@ -23,10 +23,14 @@ def todo
       puts "No tasks to complete!" if tasks_to_complete.empty?
       
       puts "Which task would you like to mark as completed?"
-      puts tasks_to_complete.each_with_index { |task, index| puts "#{index + 1}: #{task}" }
-
-    
-
+      tasks_to_complete.each_with_index { |task, index| puts "#{index + 1}: #{task}" }
+    when 3
+    when 4
+    when 5
+    else
     end
+  end
 
 end
+
+todo
