@@ -18,12 +18,55 @@ def hangman
   "mellow", "asics", "nike", "hyperlyte", "florence", "kaipo", "kanyon", "fezzick", "peak", "sanitas", "green", 
   "bear", "anemone", "flatirons", "mesa", "boulder", "eldorado", "golden", "wapiti", "boulderthon", 
   "marathon", "ultramarathon", "interval", "tempo", "hill", "longrun"
-]
-
+  ]
   secret_word = words.sample
   hidden = Array.new(secret_word.length, "_")
-  
 
+  # Main Game loop
+  until lives == 0 || hidden.join == secret_word
+
+    puts "Welcome to Hangman!"
+    sleep(2)
+    puts "Let's generate a word..."
+    4.times {
+      sleep(1)
+      print "..."
+    }
+    puts "Word generated!"
+    sleep(2)
+    system('clear')
+
+    puts "\nWord: #{hidden.join(", ")}"
+    puts "Wrong guesses: #{wrong_guesses.join(", ")}"
+    puts "Lives left: #{lives}"
+    sleep(2)
+    guess = ask("Guess a letter: ")
+
+    # Checking if already guessed
+    if hidden.include?(guess) || wrong_guesses.include?(guess)
+      puts "You already guessed #{guess}!"
+      next
+    end
+
+    # Checking guess
+    if secret_word.include?(guess)
+      secret_word.chars.each_with_index do |char, index|
+        hidden[index] = char if char == guess
+      end
+      puts "Good Guess!"
+    else
+      wrong_guesses << guess
+      lives -= 1
+      puts "Wrong guess!"
+    end
+
+  end
+
+  if hidden.join == secret_word
+    puts "\n 🎉 You win! The word was '#{secret_word}'"
+  else
+    puts "\n💀 You lose! The word was '#{secret_word}'"
+  end
 
 end
 
