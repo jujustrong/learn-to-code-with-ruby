@@ -22,24 +22,24 @@ def hangman
   secret_word = words.sample
   hidden = Array.new(secret_word.length, "_")
 
+  puts "Welcome to Hangman!"
+  sleep(2)
+  puts "Let's generate a word..."
+  4.times {
+    sleep(1)
+    print "..."
+  }
+  puts "Word generated!"
+  sleep(2)
+  system('clear')
+
   # Main Game loop
   until lives == 0 || hidden.join == secret_word
 
-    puts "Welcome to Hangman!"
-    sleep(2)
-    puts "Let's generate a word..."
-    4.times {
-      sleep(1)
-      print "..."
-    }
-    puts "Word generated!"
-    sleep(2)
-    system('clear')
-
+    puts "#{secret_word}"
     puts "\nWord: #{hidden.join(", ")}"
     puts "Wrong guesses: #{wrong_guesses.join(", ")}"
     puts "Lives left: #{lives}"
-    sleep(2)
     guess = ask("Guess a letter: ")
 
     # Checking if already guessed
@@ -63,7 +63,7 @@ def hangman
   end
 
   if hidden.join == secret_word
-    puts "\n 🎉 You win! The word was '#{secret_word}'"
+    puts "\n🎉 You win! The word was '#{secret_word}'"
   else
     puts "\n💀 You lose! The word was '#{secret_word}'"
   end
