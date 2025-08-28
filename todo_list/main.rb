@@ -24,11 +24,38 @@ def todo
       
       puts "Which task would you like to mark as completed?"
       tasks_to_complete.each_with_index { |task, index| puts "#{index + 1}: #{task}" }
+      task_num = ask("Enter task number: ").to_i
+      if task_num.between?(1, tasks_to_complete.size)
+        completed_tasks << tasks_to_complete.delete_at(task_num - 1)
+        puts "Task completed!"
+      else
+        puts "Invalid selection."
+      end
+
     when 3
+      puts "Tasks To Complete:"
+      if tasks_to_complete.empty?
+        puts "No tasks pending!"
+      else
+        tasks_to_complete.each_with_index { |task, index| puts "#{index + 1}: #{task}" }
+      end
+
     when 4
+      puts "Completed Tasks:"
+      if completed_tasks.empty?
+        puts "No completed tasks yet!"
+      else
+        completed_tasks.each_with_index { |task, index| puts "#{index + 1}: #{task}" }
+      end
+
     when 5
+      puts "Exiting To-Do List. Goodbye!"
+      break
+
     else
+      puts "Invalid option. Please enter a number between 1 and 5."
     end
+
   end
 
 end
