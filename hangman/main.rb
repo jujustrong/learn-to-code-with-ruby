@@ -23,8 +23,8 @@ def hangman
   secret_word = words.sample.upcase
   hidden = Array.new(secret_word.length, "_")
 
-  puts "-----------------------"
-  puts "Generating the secret word..."
+  puts
+  print "Generating the secret word..."
   4.times {
     sleep(1)
     print "..."
@@ -156,11 +156,13 @@ end
 
 loop do
   hangman
-  replay = ask("Play Again? (y/n)")
+  replay = ask("Play Again?\nEnter 'y' or 'n': ")
   if replay.downcase == "y"
+    system('clear')
     next
   elsif replay.downcase == "n"
-    puts "Goodbye!"
+    puts "\nGoodbye!"
+    puts
     break
   else
     puts "Please enter a 'y' or 'n'!"
