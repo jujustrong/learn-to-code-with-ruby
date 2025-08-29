@@ -105,8 +105,8 @@ def hangman
   until lives == 0 || hidden.join == secret_word
 
     puts gallows[6 - lives]
-    puts "\nWord: #{hidden.join(", ")}"
-    puts "Wrong guesses: #{wrong_guesses.join(", ").upcase}"
+    puts "\nWord: #{hidden.join(" ")}"
+    puts "\nWrong guesses: #{wrong_guesses.join(", ").upcase}"
     puts "Lives left: #{lives}"
     guess = ask("Guess a letter: ").upcase
 
