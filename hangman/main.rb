@@ -33,9 +33,76 @@ def hangman
   sleep(2)
   system('clear')
 
+  gallows = [
+    """
+     -----
+     |   |
+     |   O
+     |  /|\\
+     |  / \\
+     |
+    --------
+    """,
+    """
+     -----
+     |   |
+     |   O
+     |  /|\\
+     |  / 
+     |
+    --------
+    """,
+    """
+     -----
+     |   |
+     |   O
+     |  /|\\
+     |  
+     |
+    --------
+    """,
+    """
+     -----
+     |   |
+     |   O
+     |  /|
+     |  
+     |
+    --------
+    """,
+    """
+     -----
+     |   |
+     |   O
+     |   |
+     |  
+     |
+    --------
+    """,
+    """
+     -----
+     |   |
+     |   O
+     |   
+     |  
+     |
+    --------
+    """,
+    """
+     -----
+     |   |
+     |   
+     |   
+     |  
+     |
+    --------
+    """
+  ]
+
   # Main Game loop
   until lives == 0 || hidden.join == secret_word
 
+    puts gallows[6 - lives]
     puts "\nWord (#{secret_word}): #{hidden.join(", ")}"
     puts "Wrong guesses: #{wrong_guesses.join(", ")}"
     puts "Lives left: #{lives}"
@@ -64,6 +131,7 @@ def hangman
     system('clear')
   end
 
+  puts gallows[6 - lives]
   if hidden.join == secret_word
     puts "\n🎉 You win! The word was '#{secret_word}'"
     puts
