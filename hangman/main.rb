@@ -17,14 +17,16 @@ def hangman
   "climb", "python", "magic", "harry", "potter", "animals", "adidas", "terrex", "hoka", "salomon", 
   "mellow", "asics", "nike", "hyperlyte", "florence", "kaipo", "kanyon", "fezzick", "peak", "sanitas", "green", 
   "bear", "anemone", "flatirons", "mesa", "boulder", "eldorado", "golden", "wapiti", "boulderthon", 
-  "marathon", "ultramarathon", "interval", "tempo", "hill", "longrun"
+  "marathon", "ultramarathon", "interval", "tempo", "hill", "longrun", "realmadrid", "modric", "ferrari", 
+  "leclerc", "hamilton", "ravenclaw", "hufflepuff", "slytherin", "gryffindor", "montblanc", "garmin", "lasportiva", "raide"
   ]
-  secret_word = words.sample
+  secret_word = words.sample.upcase
   hidden = Array.new(secret_word.length, "_")
 
+  puts "-----------------------"
   puts "Welcome to Hangman!"
   sleep(2)
-  puts "Let's generate a word..."
+  puts "Generating the secret word..."
   4.times {
     sleep(1)
     print "..."
@@ -103,10 +105,10 @@ def hangman
   until lives == 0 || hidden.join == secret_word
 
     puts gallows[6 - lives]
-    puts "\nWord (#{secret_word}): #{hidden.join(", ")}"
-    puts "Wrong guesses: #{wrong_guesses.join(", ")}"
+    puts "\nWord: #{hidden.join(", ")}"
+    puts "Wrong guesses: #{wrong_guesses.join(", ").upcase}"
     puts "Lives left: #{lives}"
-    guess = ask("Guess a letter: ")
+    guess = ask("Guess a letter: ").upcase
 
     # Checking if already guessed
     if hidden.include?(guess) || wrong_guesses.include?(guess)
@@ -133,11 +135,11 @@ def hangman
 
   puts gallows[6 - lives]
   if hidden.join == secret_word
-    puts "\n🎉 You win! The word was '#{secret_word}'"
+    puts "\n🎉 You win! The word was '#{secret_word}'!"
     puts
     puts
   else
-    puts "\n💀 You lose! The word was '#{secret_word}'"
+    puts "\n💀 You lose! The word was '#{secret_word}'!"
     puts
     puts
   end
