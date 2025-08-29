@@ -108,7 +108,19 @@ def hangman
     puts "\nWord: #{hidden.join(" ")}"
     puts "\nWrong guesses: #{wrong_guesses.join(", ").upcase}"
     puts "Lives left: #{lives}"
-    guess = ask("Guess a letter: ").upcase
+    guess = ask("Guess a letter or word: ").upcase
+
+    if guess.length > 1
+      if guess == secret_word
+        hidden = secret_word.chars
+        system('clear')
+        break
+      else
+        lives -= 1
+        puts "Wrong word guess!"
+        next
+      end
+    end
 
     # Checking if already guessed
     if hidden.include?(guess) || wrong_guesses.include?(guess)
