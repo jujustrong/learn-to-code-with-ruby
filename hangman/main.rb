@@ -24,8 +24,6 @@ def hangman
   hidden = Array.new(secret_word.length, "_")
 
   puts "-----------------------"
-  puts "Welcome to Hangman!"
-  sleep(2)
   puts "Generating the secret word..."
   4.times {
     sleep(1)
@@ -149,13 +147,22 @@ def hangman
   if hidden.join == secret_word
     puts "\n🎉 You win! The word was '#{secret_word}'!"
     puts
-    puts
   else
     puts "\n💀 You lose! The word was '#{secret_word}'!"
-    puts
     puts
   end
 
 end
 
-hangman
+loop do
+  hangman
+  replay = ask("Play Again? (y/n)")
+  if replay.downcase == "y"
+    next
+  elsif replay.downcase == "n"
+    puts "Goodbye!"
+    break
+  else
+    puts "Please enter a 'y' or 'n'!"
+  end
+end
