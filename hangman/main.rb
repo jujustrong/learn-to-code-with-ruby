@@ -29,15 +29,14 @@ def hangman
     sleep(1)
     print "..."
   }
-  puts "Word generated!"
+  puts "\nWord generated!"
   sleep(2)
   system('clear')
 
   # Main Game loop
   until lives == 0 || hidden.join == secret_word
 
-    puts "#{secret_word}"
-    puts "\nWord: #{hidden.join(", ")}"
+    puts "\nWord (#{secret_word}): #{hidden.join(", ")}"
     puts "Wrong guesses: #{wrong_guesses.join(", ")}"
     puts "Lives left: #{lives}"
     guess = ask("Guess a letter: ")
@@ -45,6 +44,8 @@ def hangman
     # Checking if already guessed
     if hidden.include?(guess) || wrong_guesses.include?(guess)
       puts "You already guessed #{guess}!"
+      sleep(2)
+      system('clear')
       next
     end
 
@@ -59,13 +60,18 @@ def hangman
       lives -= 1
       puts "Wrong guess!"
     end
-
+    sleep(2)
+    system('clear')
   end
 
   if hidden.join == secret_word
     puts "\n🎉 You win! The word was '#{secret_word}'"
+    puts
+    puts
   else
     puts "\n💀 You lose! The word was '#{secret_word}'"
+    puts
+    puts
   end
 
 end
