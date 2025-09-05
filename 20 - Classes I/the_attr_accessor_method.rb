@@ -1,7 +1,8 @@
 class Guitar
 
-  attr_reader :type, :wood, :strings, :price #does the same thing as making the getter methods we made.
-  attr_writer :type, :wood, :strings, :price #does the same thing as the setter methods.
+  # attr_reader :type, :wood, :strings, :price #does the same thing as making the getter methods we made.
+  # attr_writer :type, :wood, :strings, :price #does the same thing as the setter methods.
+  attr_accessor :price, :wood, :strings, :type # DOES BOTH READING AND WRITING
 
   def initialize
     @type = "Acoustic"
