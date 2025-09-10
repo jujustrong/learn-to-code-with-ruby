@@ -26,15 +26,31 @@ end
 class TodoList
   
   def initialize
+    @tasks = []
   end
 
-  def add_task
+  def add_task(description)
+    @tasks << Task.new(description)
+
   end  
 
-  def mark_completed
+  def mark_task_completed(index)
+    task = @tasks[index]
+    task.mark_completed if task
   end
 
   def view_tasks
+    puts "To-Do Tasks:"
+    @tasks.each_with_index do |task, i|
+      puts "#{i}: #{task}"
+    end
+  end
+
+  def view_completed_tasks
+    puts "Complete Tasks:"
+    @tasks.each_with_index do |task, i|
+      puts "#{i}: #{task}" if task.completed
+    end
   end
 
 end
