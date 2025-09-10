@@ -3,6 +3,42 @@ def ask(prompt)
   gets.chomp
 end
 
+class Task
+
+  attr_accessor :description, :completed
+
+  def initialize(description)
+    @description = description.capitalize
+    @completed = false
+  end
+
+  def mark_completed
+    @completed = true
+  end
+
+  def to_s
+    status = completed ? "[X]" : "[]"
+    "#{status} #{description}"
+  end
+
+end
+
+class TodoList
+  
+  def initialize
+  end
+
+  def add_task
+  end  
+
+  def mark_completed
+  end
+
+  def view_tasks
+  end
+
+end
+
 
 def todo
   tasks_to_complete = []
