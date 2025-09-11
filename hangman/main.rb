@@ -8,6 +8,18 @@ def ask(prompt)
   gets.chomp
 end
 
+class Hangman
+
+  def initialize(word, guesses_left, guessed_letters)
+    @word = word
+    @guesses_left = guesses_left
+    @guessed_letters = guessed_letters
+  end
+
+end
+
+
+
 def hangman
   wrong_guesses = []
   lives = 6
