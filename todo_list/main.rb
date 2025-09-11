@@ -56,49 +56,39 @@ class TodoList
 end
 
 
-def todo
-  tasks_to_complete = []
-  completed_tasks = []
+def run
+  list = TodoList.new
 
   puts "-"*40
   loop do
     puts "What would you like to do?"
-    choice = ask("1: Add new task\n2: Mark Task Completed\n3: View Tasks\n4: View Completed Tasks\n5: Exit\nEnter Number (1-5): ").to_i
+    choice = ask(
+      "1: Add new task\n
+      2: Mark Task Completed\n
+      3: View Tasks\n
+      4: View Completed Tasks\n
+      5: Exit\nEnter Number (1-5): "
+      ).to_i
+    system('clear')
 
     case choice
+
     when 1
-      new_task = ask("What task would you like to add? ")
-      tasks_to_complete << new_task.capitalize
-      puts "Task Added!"
-    
+      list.add_task(ask("What task would you like to add? "))
+
     when 2
-      puts "No tasks to complete!" if tasks_to_complete.empty?
-      
-      puts "Which task would you like to mark as completed?"
-      tasks_to_complete.each_with_index { |task, index| puts "#{index + 1}: #{task}" }
-      task_num = ask("Enter task number: ").to_i
-      if task_num.between?(1, tasks_to_complete.size)
-        completed_tasks << tasks_to_complete.delete_at(task_num - 1)
-        puts "Task completed!"
-      else
-        puts "Invalid selection."
-      end
+      list.view_tasks
+      list.mark_task_completed(ask("Enter task number to mark completed: "))
 
     when 3
-      puts "Tasks To Complete:"
-      if tasks_to_complete.empty?
+      if list.nil?
         puts "No tasks pending!"
       else
-        tasks_to_complete.each_with_index { |task, index| puts "#{index + 1}: #{task}" }
+        list.view_tasks
       end
 
     when 4
-      puts "Completed Tasks:"
-      if completed_tasks.empty?
-        puts "No completed tasks yet!"
-      else
-        completed_tasks.each_with_index { |task, index| puts "#{index + 1}: #{task}" }
-      end
+      list.view_completed_tasks
 
     when 5
       puts "Exiting To-Do List. Goodbye!"
@@ -112,4 +102,4 @@ def todo
 
 end
 
-todo
+run
