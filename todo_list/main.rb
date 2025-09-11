@@ -102,6 +102,7 @@ def run
 
     else
       puts "Invalid option. Please enter a number between 1 and 5."
+      puts
     end
 
   end
