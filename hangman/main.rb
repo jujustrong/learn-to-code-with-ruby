@@ -9,11 +9,53 @@ def ask(prompt)
 end
 
 class Hangman
+  attr_accessor :word, :guesses_left, :guessed_letters
 
-  def initialize(word, guesses_left, guessed_letters)
-    @word = word
-    @guesses_left = guesses_left
-    @guessed_letters = guessed_letters
+  def initialize(word, guesses = 6)
+    @word = word.downcase
+    @guesses_left = guesses
+    @guessed_letters = []
+  end
+
+  def display_progress
+    #shows the word with underscores for unguessed letters
+    @word.chars.map { |char| guessed_letters.include?(char) ? char : "_"}.join(" ")
+  end
+
+  def guess(letter)
+    letter.downcase!
+
+    if guessed_letters.include(letter)
+      puts "You already guessed '#{letter}'!"
+    elsif word.include?(letter)
+      guessed_letters << letter
+      puts "Good guess!"
+    else
+      guessed_letters << letter
+      @guessed_letters -= 1
+      puts "Wrong guess! You have #{guesses_left} left."
+    end
+
+  end
+
+  def correct_guess(letter)
+
+  end
+
+  def make_guess(letter)
+    
+  end
+
+  def won
+    
+  end
+
+  def lost
+    
+  end
+
+  def game_over
+    
   end
 
 end
