@@ -38,27 +38,24 @@ class Hangman
 
   end
 
-  def correct_guess(letter)
-
-  end
-
-  def make_guess(letter)
-    
-  end
-
   def won
-    
+    words.chars.all? { |char| guessed_letters.include?(char) }
   end
 
   def lost
-    
+    @guesses_left <= 0
   end
 
   def game_over
-    
+    won? || lost?
   end
 
+  def to_s
+    "Word: #{word}, Guesses left: #{@guesses_left}, Guessed: #{guessed_letters.join(', ')}"
+  end
 end
+
+
 
 
 
