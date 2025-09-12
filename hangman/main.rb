@@ -55,7 +55,16 @@ class Hangman
   end
 end
 
+class Game
+  
+  def initialize
+    word = pick_random_word
+    @hangman = Hangman.new(word)
+  end
 
+
+
+end
 
 
 
