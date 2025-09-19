@@ -2,10 +2,9 @@ def combat(player, enemy, enemy_health)
   puts "You have encountered a #{enemy}!"
   
   while player.health > 0 && enemy_health > 0
-    print "Attack or run?"
-    choice = gets.chomp.downcase
+    choice = ask("Attack or run? ")
 
-    if choice == "attack"
+    if choice.downcase == "attack"
       damage = rand(10..20)
       enemy_health -= damage
       puts "You hit the #{enemy} for #{damage}!"
@@ -14,5 +13,7 @@ def combat(player, enemy, enemy_health)
       puts "You escaped!"
       return 
     end
+    
   end
+
 end
