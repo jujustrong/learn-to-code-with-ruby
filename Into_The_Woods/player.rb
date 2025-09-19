@@ -12,6 +12,15 @@ class Player
     puts "#{item} has been added to your inventory"
   end
 
+  def remove_item(item)
+    if @inventory.include?(item)
+      @inventory.delete(item)
+      puts "#{item} removed from your inventory."
+    else
+      puts "You don't have #{item} in your inventory."
+    end
+  end
+
   def show_inventory
     puts "Inventory: #{@inventory.join(", ")}"
   end
