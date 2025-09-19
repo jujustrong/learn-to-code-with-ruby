@@ -46,6 +46,9 @@ class Player
   end
 
   def show_inventory
+    if @inventory.empty?
+      puts "Your inventory is empty!"
+    end
     puts "Inventory: #{@inventory.join(", ")}"
   end
 
