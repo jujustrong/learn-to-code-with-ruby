@@ -16,7 +16,7 @@ class Game
   end
 
   def start
-    pause_and_clear
+    clear_screen
     puts "Hello #{@player.name}."
     loop do
       @story.story_start

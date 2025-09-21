@@ -10,7 +10,7 @@ def combat(player, enemy)
       enemy.attack(player) if enemy.alive?
     elsif choice.downcase == "run"
       puts "You escaped!"
-      break
+      return
     else
       puts "Invalid choice!"
     end

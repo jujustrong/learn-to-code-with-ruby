@@ -4,6 +4,8 @@ end
 
 def pause_and_clear(seconds = 1)
   sleep(seconds)
+  puts "\n(Press Enter to continue...)"
+  $stdin.gets  # waits for the user to hit Enter
   clear_screen
 end
 
@@ -19,9 +21,4 @@ def play_again?
     return false if choice.downcase == "no"
     puts "Please enter 'yes' or 'no'."
   end
-end
-
-def pause_screen
-  puts "\n(Press Enter to continue...)"
-  $stdin.gets  # waits for the user to hit Enter
 end
