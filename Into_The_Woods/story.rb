@@ -15,7 +15,21 @@ class Story
     @player = player
   end
 
+  def narration
+    puts "You can't go back now...it's too late."
+    sleep(4)
+    puts "Behind you, the world erupts into chaos - flames lick the horizon,\nsmoke twisting into the sky as the dragons screech echoes in the distance.\nThe ground trembles, carrying with it the sound of something massive breaking apart."
+    puts
+    puts "Your vision blurs slightly as you regain your balance on fatigued legs."
+    puts
+    puts "The only path left — the only chance to survive — is forward. Into the dark,\ntangled silence of the woods. The trees loom ahead like watchful giants, their branches\nclawing at the last light of day. A chill seeps into your chest despite the heat of the flames\nin the distance behind. There's no telling what waits inside."
+    puts
+    puts "But you have no choice, step by step, your journey begins..."
+    pause_and_clear
+  end
+
   def story_start
+    narration
     puts "You arrive at a fork in the woods."
     choice = ask("Go left or right? ")
 

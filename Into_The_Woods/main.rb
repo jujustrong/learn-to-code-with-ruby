@@ -7,6 +7,7 @@ require_relative 'items'
 class Game
   def initialize
     clear_screen
+    puts "-"*40
     puts "🌲 Welcome to INTO THE WOODS 🌲"
     name = ask("Enter your name adventurer: ")
     @player = Player.new(name)
