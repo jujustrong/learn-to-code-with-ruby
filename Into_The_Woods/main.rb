@@ -10,16 +10,24 @@ class Game
     puts "🌲 Welcome to INTO THE WOODS 🌲"
     name = ask("Enter your name adventurer: ")
     @player = Player.new(name)
+    @story = Story.new(@player)
     start
   end
 
   def start
     pause_and_clear
     puts "Hello #{@player.name}."
-    first_choice
-  end
+    loop do
+      @story.first_choice
+      break unless @player.alive?
 
-  
+      replay = ask("Do you want to continue your journey? (yes/no) ")
+      break if replay.downcase == "no"
+    end
+
+    puts "Game over! Thanks for playing."
+
+  end
 
 end
 
