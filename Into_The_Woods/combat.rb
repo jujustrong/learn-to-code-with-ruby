@@ -1,7 +1,7 @@
 def combat(player, enemy)
   puts "You have encountered a #{enemy}!"
   
-  while player.health > 0 && enemy_health > 0
+  while player.alive? && enemy.alive?
     choice = ask("Attack or run? ")
 
     if choice.downcase == "attack"

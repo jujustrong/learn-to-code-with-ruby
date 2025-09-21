@@ -59,10 +59,9 @@ class Player
   end
 
 
-
-
-
-
+  def alive?
+    @health > 0
+  end
 
 
 end
