@@ -6,7 +6,7 @@ class Enemy
     @health = health
     @attacks = attacks
   end
-  
+
   def alive?
     @health > 0
   end
@@ -20,7 +20,7 @@ class Enemy
   def attack(player)
     attack_name, damage_range = @attacks.to_a.sample
     damage = rand(damage_range)
-    puts "#{@name} uses #{attack_name}! It deals #{damage} damage!"
+    puts "#{@name} uses #{attack_name}! It dealt #{damage} damage!"
     player.take_damage(damage)
   end
 

@@ -6,14 +6,21 @@ def combat(player, enemy, enemy_health)
 
     if choice.downcase == "attack"
       damage = rand(10..20)
+      enemy.take_damage(damage)
+      enemy.attack(player) if enemy.alive?
       enemy_health -= damage
-      puts "You hit the #{enemy} for #{damage}!"
-      player.take_damage(rand(5..15)) if enemy_health > 0
-    else
+    elsif choice.downcase == "run"
       puts "You escaped!"
-      return 
+    else
+      puts "Invalid choice!"
     end
-    
+
+  end
+
+  if player.alive?
+    puts "You defeated the #{enemy.name}!"
+  else
+    puts "You were defeated by the #{enemy.name}"
   end
 
 end
