@@ -17,7 +17,7 @@ class Story
 
   def narration
     puts "You can't go back now...it's too late."
-    sleep(4)
+    sleep(2)
     puts "Behind you, the world erupts into chaos - flames lick the horizon,\nsmoke twisting into the sky as the dragons screech echoes in the distance.\nThe ground trembles, carrying with it the sound of something massive breaking apart."
     puts
     puts "Your vision blurs slightly as you regain your balance on fatigued legs."
