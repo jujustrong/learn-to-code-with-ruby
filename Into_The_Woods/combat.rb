@@ -1,4 +1,4 @@
-def combat(player, enemy, enemy_health)
+def combat(player, enemy)
   puts "You have encountered a #{enemy}!"
   
   while player.health > 0 && enemy_health > 0

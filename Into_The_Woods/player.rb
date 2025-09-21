@@ -54,6 +54,7 @@ class Player
 
   def take_damage(amount)
     @health -= amount
+    @health = 0 if @health < 0
     puts "You have taken #{amount} damage! Your health is now #{@health}."
   end
 
