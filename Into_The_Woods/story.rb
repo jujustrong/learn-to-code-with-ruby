@@ -2,12 +2,11 @@ require_relative "combat"
 require_relative "enemy"
 
 def random_enemy
-  enemies = [
-    Enemy.new("Wolf", 30, { "Bite" => 5..10, "Claw" => 3..8 }),
-    Enemy.new("Bandit", 40, { "Slash" => 6..12, "Stab" => 8..14 }),
-    Enemy.new("Bear", 60, { "Maul" => 10..20, "Swipe" => 8..15 }),
-    Enemy.new("Goblin", 25, { "Punch" => 4..8, "Dagger Stab" => 6..10 })
-  ]
+  wolf = Enemy.new("Wolf", 30, { "Bite" => 5..10, "Claw" => 3..8 })
+  bandit = Enemy.new("Bandit", 40, { "Slash" => 6..12, "Stab" => 8..14 })
+  bear = Enemy.new("Bear", 60, { "Maul" => 10..20, "Swipe" => 8..15 })
+  goblin = Enemy.new("Goblin", 25, { "Punch" => 4..8, "Dagger Stab" => 6..10 })
+  enemies = [wolf, bandit, bear, goblin]
   enemies.sample
 end
 

@@ -11,3 +11,12 @@ def ask(prompt)
   print("#{prompt}")
   gets.chomp
 end
+
+def play_again?
+  loop do
+    choice = ask("Play again? (yes/no): ")
+    return true  if choice.downcase == "yes"
+    return false if choice.downcase == "no"
+    puts "Please enter 'yes' or 'no'."
+  end
+end

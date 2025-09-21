@@ -1,5 +1,5 @@
 def combat(player, enemy)
-  puts "You have encountered a #{enemy}!"
+  puts "You have encountered a #{enemy.name}!"
   
   while player.alive? && enemy.alive?
     choice = ask("Attack or run? ")
@@ -8,9 +8,9 @@ def combat(player, enemy)
       damage = rand(10..20)
       enemy.take_damage(damage)
       enemy.attack(player) if enemy.alive?
-      enemy_health -= damage
     elsif choice.downcase == "run"
       puts "You escaped!"
+      break
     else
       puts "Invalid choice!"
     end

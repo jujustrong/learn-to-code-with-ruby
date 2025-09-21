@@ -21,8 +21,8 @@ class Game
       @story.first_choice
       break unless @player.alive?
 
-      replay = ask("Do you want to continue your journey? (yes/no) ")
-      break if replay.downcase == "no"
+      break unless play_again?
+      
     end
 
     puts "Game over! Thanks for playing."
