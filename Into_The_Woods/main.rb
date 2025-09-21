@@ -19,16 +19,8 @@ class Game
     first_choice
   end
 
-  def first_choice
-    choice = ask("Do you go left or right? ")
-    case choice.downcase
-    when "left"
-      combat(@player, "Goblin", 40)
-    when "right"
-      @player.add_item("Magic Stone")
-    end
-  end
   
+
 end
 
 Game.new
