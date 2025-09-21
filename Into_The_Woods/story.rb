@@ -15,7 +15,7 @@ class Story
     @player = player
   end
 
-  def first_choice
+  def story_start
     puts "You arrive at a fork in the woods."
     choice = ask("Go left or right? ")
 

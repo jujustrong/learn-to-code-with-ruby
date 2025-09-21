@@ -18,11 +18,11 @@ class Game
     pause_and_clear
     puts "Hello #{@player.name}."
     loop do
-      @story.first_choice
+      @story.story_start
       break unless @player.alive?
 
       break unless play_again?
-      
+
     end
 
     puts "Game over! Thanks for playing."
