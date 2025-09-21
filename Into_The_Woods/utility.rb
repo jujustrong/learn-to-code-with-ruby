@@ -20,3 +20,8 @@ def play_again?
     puts "Please enter 'yes' or 'no'."
   end
 end
+
+def pause_screen
+  puts "\n(Press Enter to continue...)"
+  $stdin.gets  # waits for the user to hit Enter
+end
