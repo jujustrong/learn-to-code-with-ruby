@@ -15,32 +15,44 @@ class Story
     @player = player
   end
 
-  def narration
-    puts "You can't go back now...it's too late."
-    sleep(2)
-    puts "Behind you, the world erupts into chaos - flames lick the horizon,\nsmoke twisting into the sky as the dragons screech echoes in the distance.\nThe ground trembles, carrying with it the sound of something massive breaking apart."
+  def dramatic_intro(player)
+    chaos_scenarios = [
+      "Behind you, flames roar as the horizon collapses into smoke and ash. The air is thick with heat, and the ground trembles under your feet.",
+      "Behind you, a wall of water crashes through the land, swallowing roads and homes in its path. The roar of the flood drowns out every thought.",
+      "Behind you, shadows surge forward, crawling with twisted shapes. Inhuman shrieks echo as the creatures scatter through the burning ruins.",
+      "Behind you, the city crumbles — towers falling like brittle sticks, stone and steel raining down as the streets disappear into chaos."
+    ]
+
+    clear_screen
+    puts "You can't go back now, #{player.name}. It's too late."
+    puts chaos_scenarios.sample
     puts
-    puts "Your vision blurs slightly as you regain your balance on fatigued legs."
-    pause_and_clear
-    puts "The only path left — the only chance to survive — is forward. Into the dark,\ntangled silence of the woods. The trees loom ahead like watchful giants, their branches\nclawing at the last light of day. A chill seeps into your chest despite the heat of the flames\nin the distance behind. There's no telling what waits inside."
-    puts
-    puts "But you have no choice, step by step, your journey begins..."
-    pause_and_clear
+    puts "You slowly make your way to your feet, your vision blurs slightly as you regain your balance."
+    puts "The only path left — the only chance to survive — is forward."
+    puts "Into the dark, tangled silence of the woods..."
+
   end
 
   def story_start
-    narration
-    puts "You arrive at a fork in the woods."
-    choice = ask("Go left or right? ")
+    dramatic_intro(@player.name)
+    loop do
+      puts "Which path will you choose..."
+      choice = ask("Left or Right? ")
 
-    if choice.downcase == "left"
-      puts "The path is quiet... too quiet..."
-      combat(@player, random_enemy)
-    elsif choice.downcase == "right"
-      puts "You stumble into a camp..."
-      combat(@player, random_enemy)
-    else
-      puts "You wander aimlessly..."
+      if choice.downcase == "left"
+        puts "The path is quiet... too quiet..."
+        combat(@player, random_enemy)
+      elsif choice.downcase == "right"
+        puts "You stumble into a camp..."
+        combat(@player, random_enemy)
+      else
+        puts "You wander aimlessly..."
+      end
     end
+
   end
+
+
+
+
 end
