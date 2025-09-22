@@ -8,8 +8,10 @@ def combat(player, enemy)
       damage = rand(10..20)
       enemy.take_damage(damage)
       enemy.attack(player) if enemy.alive?
+      pause_and_clear
     elsif choice.downcase == "run"
       puts "You escaped!"
+      pause_and_clear
       return
     else
       puts "Invalid choice!"

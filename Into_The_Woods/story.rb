@@ -15,7 +15,7 @@ class Story
     @player = player
   end
 
-  def dramatic_intro(player)
+  def dramatic_intro
     chaos_scenarios = [
       "Behind you, flames roar as the horizon collapses into smoke and ash. The air is thick with heat, and the ground trembles under your feet.",
       "Behind you, a wall of water crashes through the land, swallowing roads and homes in its path. The roar of the flood drowns out every thought.",
@@ -24,30 +24,36 @@ class Story
     ]
 
     clear_screen
-    puts "You can't go back now, #{player.name}. It's too late."
+    puts "You can't go back now, #{@player.name}. It's too late."
     puts chaos_scenarios.sample
     puts
     puts "You slowly make your way to your feet, your vision blurs slightly as you regain your balance."
+    puts
     puts "The only path left — the only chance to survive — is forward."
     puts "Into the dark, tangled silence of the woods..."
+    pause_and_clear
 
   end
 
   def story_start
-    dramatic_intro(@player.name)
-    loop do
-      puts "Which path will you choose..."
-      choice = ask("Left or Right? ")
+    dramatic_intro
 
-      if choice.downcase == "left"
-        puts "The path is quiet... too quiet..."
+    choice = nil
+    until %w[left right].include?(choice)
+      puts "Which path will you choose..."
+      choice = ask("Left or Right? ").downcase
+
+      case choice
+      when "left"
+        puts "The path is quiet...too quiet..."
         combat(@player, random_enemy)
-      elsif choice.downcase == "right"
+      when "right"
         puts "You stumble into a camp..."
         combat(@player, random_enemy)
       else
-        puts "You wander aimlessly..."
+        puts "You wander aimlessly...Try again."
       end
+      
     end
 
   end
