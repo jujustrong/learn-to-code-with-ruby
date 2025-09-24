@@ -18,7 +18,7 @@ class Car
     self.value > car.value ? "Your car is better" : "Your car is worse"
   end
 
-  protected
+  protected     # Works similar to private here where everything underneath is a 'protected' method that cannot be accessed from the outside.
 
   def value
     @value
