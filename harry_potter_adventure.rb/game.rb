@@ -326,7 +326,9 @@ class Game
   end
 
   def quit
+    puts
     puts "Goodbye Wizard! 🪄"
+    puts
     @running = false
   end
 
