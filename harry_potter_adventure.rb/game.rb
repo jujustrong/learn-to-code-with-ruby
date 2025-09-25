@@ -298,9 +298,11 @@ class Game
     while @running
       clear_screen
       puts "---- Main Menu ----"
+      puts
       puts "1. Explore 🏰"
       puts "2. Inventory 🧳"
       puts "3. Quit 👋"
+      puts
       choice = ask("Enter 1, 2, or 3: ")
 
       case choice
