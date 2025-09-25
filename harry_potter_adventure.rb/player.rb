@@ -23,6 +23,18 @@ class Player
     puts "Current Health: #{@health}"
   end
 
+  def show_inventory
+    if @inventory.empty?
+      clear_screen
+      puts "Your bag is empty."
+      pause_and_clear
+    else
+      clear_screen
+      puts "Inventory: " + @inventory.map(&:name).join(", ")
+      pause_and_clear
+    end
+  end
+
   def alive?
     @health > 0
   end
