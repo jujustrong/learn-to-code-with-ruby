@@ -318,6 +318,9 @@ class Game
 
   end
 
+
+  # EXPLORE SECTION*****
+  
   def explore
     # Placeholder until i put in explore functionality
     clear_screen
@@ -325,6 +328,12 @@ class Game
     pause_and_clear
   end
 
+  def setup_locations
+    
+  end
+  
+  # ********************
+  
   def quit
     puts
     puts "Goodbye Wizard! 🪄"
