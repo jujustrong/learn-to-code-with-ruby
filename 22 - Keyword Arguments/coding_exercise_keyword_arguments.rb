@@ -36,6 +36,14 @@ r1 = Restaurant.new(
   menu: { wings: 14.99 }
 )
 
+p r1.name
+p r1.address
+p r1.cuisine
+p r1.head_chef
+p r1.rating
+p r1.menu
+puts
+
 r2 = Restaurant.new(
   name: "Hell's Kitchen",
   address: "345 Las Vegas Boulevard, NV",
