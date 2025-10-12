@@ -14,7 +14,7 @@
   "files.autoSave": "onFocusChange",
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
-  "workbench.colorTheme": "Spinel",
+  "workbench.colorTheme": "09. Midnight Vibe Ruby",
   "workbench.editor.enablePreview": false,
   "workbench.panel.defaultLocation": "right",
   "workbench.editor.enablePreviewFromQuickOpen": false,
