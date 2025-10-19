@@ -322,14 +322,64 @@ class Game
   # EXPLORE SECTION*****
   
   def explore
-    # Placeholder until i put in explore functionality
-    clear_screen
-    puts "You wander through the castle halls..."
-    pause_and_clear
+    loop do
+      clear_screen
+      puts "Where would you like to explore?"
+      @locations.keys.each_with_index do |loc, i|
+        puts "#{i + 1}. #{loc.capitalize}"
+      end
+      puts "#{@locations.size + 1}. Back to Main Menu"
+
+      choice = ask("Enter a number: ").to_i
+
+      if choice.between?(1, @locations.size)
+        chosen_location = @locations.values[choice - 1]
+        enter_location(chosen_location)
+      elsif choice == @locations.size + 1
+        break
+      else
+        puts "Not a valid choice."
+        pause_and_clear
+      end
+    end
+  end
+
+  def enter_location(location)
+    loop do
+      clear_screen
+      location.display
+      puts "#{location.options.size + 1}. Leave this area"
+
+      choice = ask("What would you like to do? ").downcase
+
+      if location.options.key?(choice)
+        location.options[choice].call
+      elsif choice == (location.options.size + 1).to_s || choice == "leave"
+        break
+      else
+        puts "That’s not something you can do here."
+      end
+      pause_and_clear
+    end
   end
 
   def setup_locations
+    @locations = {
+      "great hall" => Location.new("Great Hall", "Floating candles flicker above long tables.", {
+      "look" => -> { puts "You see four house tables filled with chatter." },
+      "talk" => -> { puts "You strike up a conversation with Nearly Headless Nick." }
+    }),
     
+    "library" => Location.new("Library", "Rows of towering shelves filled with magical books.", {
+      "look" => -> { puts "So many books! You notice the Restricted Section is roped off." },
+      "search" => -> { puts "You find a dusty spellbook with moving text." }
+    }),
+
+    "dungeons" => Location.new("Dungeons", "Dark, cold, and a little damp…", {
+      "look" => -> { puts "You hear cauldrons bubbling and faint whispers." },
+      "snoop" => -> { puts "You sneak a peek at Snape’s private stores." }
+    })
+  }
   end
   
   # ********************
