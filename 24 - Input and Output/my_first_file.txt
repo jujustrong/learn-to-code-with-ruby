@@ -1,4 +1,0 @@
-I'm creating this text file using Ruby
-No line break herePretty cool!
-What's up? How you doing?
-No line break herePretty cool!
