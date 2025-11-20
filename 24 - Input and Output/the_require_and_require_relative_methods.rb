@@ -2,6 +2,8 @@
 # It imports from Ruby's import database first
 # It only loads something once instead of several times like when we use load
 # require_relative looks in the current directory first
+# When using just Require, you will need the ./ before putting the directory name. 
+# For both of these methods, the .rb is optional and you will not always see it.
 
 puts "Welcome to the program"
 
